@@ -1,35 +1,56 @@
 // work day scheduler project
-// getting each time block
+// getting each variable
+
 var timeblock = $("#timeblock");
 var today = moment();
-console.log(today.format("MMM, Do, YYYY"));
+console.log(today.format("dddd MMM Mo, YYYY"));
 var currentTime = today.format("MMM, Do, YYYY");
 var currentHour = today.format("H");
 
 
 // still not displaying time in header
 // $('#current-clock').innerHtml = currentTime;
-$("#current-clock").text(today.format("MMM Do, YYYY"));
-
-// Color differences for recent, current, and future events
-// function for color class changes
+$("#current-clock").text(today.format("dddd MMM Mo, YYYY"));
 
 // function not yet working
-var colorSwitch = function(event) {
-    for (let i = 9; i < timeblock.length; i++) {
-        // if i = the same hour of the day, red
-        if (i = currentHour) {
-            event.timeblock.addClass("present")
-            // function changeRed(event) {
-            //     event.timeblock.setAttribute("style", "background-color: #ff0000")
-            // }
-        } else if (i < currentHour){
-            event.timeblock.addClass("past")
-        } else {
-            event.timeblock.addClass("future")
-        }
-    }
+// var colorSwitch = function(event) {
+//     for (let i = 0; i < timeblock.length; i++) {
+//         // if i = the same hour of the day, red
+//         if (i = currentHour) {
+//             event.timeblock.addClass("present")
+//             // }
+//         } else if (i < currentHour){
+//             event.timeblock.addClass("past")
+//         } else {
+//             event.timeblock.addClass("future")
+//         }
+//     }
+// }
+
+// function to edit/save text
+
+function editBlock() {
+    var textContent = document.getElementbyClass("timeblock").createElement("p");
+    textContent.text("test");
+    textContent.appendChild(p);
 }
+
+// function for color changing background
+
+var colorSwitch = function (event){
+
+    for (let i = 0; i < timeblock.length; i++) {
+        if (timeblock == currentHour) {
+        timeblock.setAttribute("class", "present");  //present
+         }
+        if (timeblock < currentHour) {
+        timeblock.setAttribute("class", "past");   //past
+       }
+        if (timeblock > currentHour) {
+        timeblock.setAttribute("class", "future");  //future
+          };
+      }
+    }
 
 // on.click to let user edit an event
 
@@ -39,15 +60,3 @@ var colorSwitch = function(event) {
 // once user makes edit, save button saves to local storage
     // On click, be able to edit and save changes
     // Save button
-
-
-
-
-// style changing function
-    // function changePurple(event) {
-    //     // event.stopPropagation();
-    //     event.currentTarget.setAttribute(
-    //       "style",
-    //       "background-color: #601A4A"
-    //     );
-    //   }
