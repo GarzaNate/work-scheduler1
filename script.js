@@ -35,6 +35,7 @@ for (let i = 0; i < 9; i++) {
         console.log("click");
         console.log($("textarea")[i].value)
         localStorage.setItem("save" + i, $("textarea")[i].value)
+       // localStorage.getItem("save" + i, $("textarea")[i].value)
        })
 }
 
