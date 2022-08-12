@@ -26,8 +26,20 @@ $("#current-clock").text(today.format("dddd MMM Mo, YYYY h:mm:ss a"));
 //         }
 //     }
 // }
-
+var tacos = document.querySelectorAll(".saveBtn")
 // function to edit/save text
+for (let i = 0; i < 9; i++) {
+    console.log(tacos[i])
+//   "save" + i
+       tacos[i].addEventListener("click", function () {
+        console.log("click");
+        console.log($("textarea")[i].value)
+        localStorage.setItem("save" + i, $("textarea")[i].value)
+       })
+}
+
+
+
 
 function editBlock() {
     var textContent = document.getElementbyClass("timeblock").createElement("p");
@@ -42,23 +54,23 @@ $(".container-fluid").on("click", "button", function (event) {
 
 // function for color changing background
 
-var colorSwitch = function (){
+var colorSwitch = function () {
 
     for (let i = 0; i < timeblock.length; i++) {
-       console.log(timeblock[i].id)
+        console.log(timeblock[i].id)
         console.log(currentHour);
 
         if (timeblock[i].id == currentHour) {
-        timeblock[i].setAttribute("class", "present");  //present
-         }
+            timeblock[i].setAttribute("class", "present");  //present
+        }
         if (timeblock[i].id < currentHour) {
-        timeblock[i].setAttribute("class", "past");   //past
-       }
+            timeblock[i].setAttribute("class", "past");   //past
+        }
         if (timeblock[i].id > currentHour) {
-        timeblock[i].setAttribute("class", "future");  //future
-          };
-      }
+            timeblock[i].setAttribute("class", "future");  //future
+        };
     }
+}
 
 colorSwitch();
 
